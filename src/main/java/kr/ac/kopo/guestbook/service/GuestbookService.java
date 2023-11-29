@@ -14,6 +14,13 @@ public interface GuestbookService {
     // 글 내용 조회
     GuestbookDTO read(Long gno);
 
+    // 글 수정
+    void modify(GuestbookDTO dto); // gno, title, content를 사용하여 수정
+
+    // 글 삭제
+    void remove(Long gno); // gno만 있어도 삭제 가능
+
+
     default Guestbook dtoToEntity(GuestbookDTO dto) {
         Guestbook guestbookEntity = Guestbook.builder()
                 .gno(dto.getGno())
